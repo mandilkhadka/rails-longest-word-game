@@ -30,9 +30,11 @@ class GamesController < ApplicationController
 
     @result =
       if @user_input_char.all? { |all| @random_letters.include?(all) } && @is_english_word == true
-        "The word is in the grid and is an english word "
+        "You win-- #{@user_input}....
+        The word is in the grid and is an english word"
       else
-        "It is not in the grid or its not a valid word"
+        "You lose-- #{@random_letters.join}....
+        It is not in the grid or its not a valid word"
       end
   end
 end
