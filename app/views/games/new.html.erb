@@ -1,1 +1,16 @@
 <h1>new page</h1>
+
+  <%= @letters %>
+<ul>
+  <% @letters.each do |letter| %>
+    <li><%= letter %></li>
+    <% end %>
+</ul>
+
+<form action="/score" method="post" data-turbo="false">
+  <p>What is the longest word you can find?</p>
+  <input type="text" name="word">
+  <input type="submit">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+</form>
